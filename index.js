@@ -95,19 +95,29 @@ function sound(temp) {
 }
 
 
+function addanimation(temp){
+
+     var current = temp;
+     var currentButton = document.querySelector("." + temp);
+     currentButton.classList.add("pressed");
+     setTimeout(function(){
+       currentButton.classList.remove("pressed");
+     } , 100);
+}
+
 
 for(var i = 0 ; i < document.querySelectorAll(".drum").length ; i++){
     // console.log("rocket science");   
     var buttenHtml = this.innerHTML;
     document.querySelectorAll(".drum")[i].addEventListener("click" , function(){
         sound(this.innerHTML);
+        addanimation(this.innerHTML);
     });
 }   
 
 document.addEventListener("keypress" , function(event){
-
     sound(event.key);
-
+    addanimation(event.key);
 });
 
 
